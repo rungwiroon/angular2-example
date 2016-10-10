@@ -1,10 +1,10 @@
-import { Angular2BasicV1Page } from './app.po';
+import { Angular2TestPage } from './app.po';
 
-describe('angular2-basic-v1 App', function() {
-  let page: Angular2BasicV1Page;
+describe('angular2-test App', function() {
+  let page: Angular2TestPage;
 
   beforeEach(() => {
-    page = new Angular2BasicV1Page();
+    page = new Angular2TestPage();
   });
 
   it('should display message saying app works', () => {

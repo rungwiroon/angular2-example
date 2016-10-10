@@ -1,7 +1,7 @@
 {
   "project": {
-    "version": "1.0.0-beta.17",
-    "name": "angular2-basic-v1"
+    "version": "1.0.0-beta.16",
+    "name": "angular2-test"
   },
   "apps": [
     {
