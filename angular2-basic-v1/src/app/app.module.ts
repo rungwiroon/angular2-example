@@ -9,7 +9,7 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home';
 import { HeaderComponent } from './shared';
-import { CustomerListComponent } from './customers';
+import { CustomerListComponent, CustomerService } from './customers';
 
 //const appRoutes: Routes = [
   
@@ -29,7 +29,9 @@ import { CustomerListComponent } from './customers';
     routing
     //RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    CustomerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
