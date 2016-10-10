@@ -7,9 +7,9 @@ import { HttpModule } from '@angular/http';
 
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { CustomerListComponent } from './customers/customer-list/customer-list.component';
+import { HomeComponent } from './home';
+import { HeaderComponent } from './shared';
+import { CustomerListComponent } from './customers';
 
 //const appRoutes: Routes = [
   
