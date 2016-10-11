@@ -9,7 +9,8 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home';
 import { HeaderComponent } from './shared';
-import { CustomerListComponent, CustomerService } from './customers';
+import { CustomerListComponent } from './customers';
+import { CustomerService } from './customers/customer-list/customer.service';
 
 //const appRoutes: Routes = [
   
