@@ -8,7 +8,7 @@ import { Routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { CustomerListComponent, CustomerService } from './customers';
+import { CustomerListComponent, CustomerCreateComponent, CustomerService } from './customers';
 
 /*import {
   AppComponent,
@@ -21,7 +21,8 @@ import { CustomerListComponent, CustomerService } from './customers';
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    CustomerCreateComponent
   ],
   imports: [
     BrowserModule,
