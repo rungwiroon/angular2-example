@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { Routing } from './app.routing';
 
@@ -28,7 +29,8 @@ import { CustomerListComponent, CustomerCreateComponent, CustomerService } from 
     BrowserModule,
     FormsModule,
     HttpModule,
-    Routing
+    Routing,
+    NgbModule.forRoot()
   ],
   providers: [CustomerService],
   bootstrap: [AppComponent]
