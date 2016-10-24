@@ -3,42 +3,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Services.Services;
+using Services.Models;
 
 namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class CustomerController : Controller
     {
+        private CustomerService _service = new CustomerService();
+
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<CustomerModel> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _service.Get();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public CustomerModel Get(int id)
         {
-            return "value";
+            return _service.Get(id);
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post(CustomerModel model)
         {
+            _service.Create(model);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, CustomerModel model)
         {
+            model.Id = id;
+            _service.Edit(model);
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _service.Delete(id);
         }
     }
 }
