@@ -2,13 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { Routing } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { CustomerListComponent, CustomerService } from './customers';
+import { CustomerListComponent, CustomerCreateComponent, CustomerService } from './customers';
 
 /*import {
   AppComponent,
@@ -21,13 +22,15 @@ import { CustomerListComponent, CustomerService } from './customers';
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    CustomerCreateComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    Routing
+    Routing,
+    NgbModule.forRoot()
   ],
   providers: [CustomerService],
   bootstrap: [AppComponent]

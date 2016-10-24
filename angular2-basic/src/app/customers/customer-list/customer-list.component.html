@@ -1,9 +1,13 @@
+<div>
+  <a routerLink='/customer/create'>Create New</a>
+</div>
 <table class='table'>
   <thead>
     <tr>
       <th>ID</th>
       <th>Name</th>
       <th>Address</th>
+      <th>Province</th>
     </tr>
   </thead>
   <tbody>
@@ -11,6 +15,7 @@
       <td>{{customer.Id}}</td>
       <td>{{customer.Name}}</td>
       <td>{{customer.Address}}</td>
+      <td>{{customer.Province}}</td>
     </tr>
   </tbody>
 </table>
