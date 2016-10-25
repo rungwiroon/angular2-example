@@ -14,7 +14,7 @@ export class CustomerCreateComponent implements OnInit {
   public provinces: string[] = ["", "กรุงเทพมหานคร", "นนทบุรี", "กาญนะจ๊ะบุรี"];
   public customerModel: CustomerModel = new CustomerModel();
 
-  private mockedCustomerModel : CustomerModel[] = MockedCustomerModel;
+  private mockedCustomerModel: CustomerModel[] = MockedCustomerModel;
 
   constructor() { }
 
@@ -31,7 +31,7 @@ export class CustomerCreateComponent implements OnInit {
   }
 
   public onSubmit(){
-    this.customerModel.Id = this.mockedCustomerModel.length + 1;
+    this.customerModel.id = this.mockedCustomerModel.length + 1;
     this.mockedCustomerModel.push(this.customerModel);
   }
 

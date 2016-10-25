@@ -9,6 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Cors.Internal;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Newtonsoft.Json.Serialization;
+using System.Buffers;
 
 namespace WebApi
 {

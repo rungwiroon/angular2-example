@@ -1,6 +1,6 @@
 export class CustomerModel {
-    public Id: number;
-    public Name: string;
-    public Address: string;
-    public Province: number;
+    public id: number;
+    public name: string;
+    public address: string;
+    public province: number;
 }
