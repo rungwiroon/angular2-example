@@ -9,14 +9,16 @@ import { CustomerModel, CustomerService } from '../shared';
 })
 export class CustomerListComponent implements OnInit {
 
+  private customerList : CustomerModel[];
   constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
-    
+    this.getCustomers();
   }
 
-  getCustomers(){
-    return this.customerService.getCustomers();
+  getCustomers() : void{
+    this.customerService.getCustomers()
+    .then(customers => this.customerList = customers);
   }
 
 }

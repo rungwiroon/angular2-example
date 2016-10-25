@@ -12,12 +12,13 @@ namespace WebApi.Controllers
     public class CustomerController : Controller
     {
         private CustomerService _service = new CustomerService();
+        private UserService _userService = new UserService();
 
         // GET api/values
         [HttpGet]
-        public IEnumerable<CustomerModel> Get()
+        public JsonResult Get()
         {
-            return _service.Get();
+            return Json(_service.Get());
         }
 
         // GET api/values/5
@@ -47,6 +48,12 @@ namespace WebApi.Controllers
         public void Delete(int id)
         {
             _service.Delete(id);
+        }
+
+        [HttpGet("getuser")]
+        public UserModel[] GetUser()
+        {
+            return _userService.Get();
         }
     }
 }

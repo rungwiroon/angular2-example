@@ -29,7 +29,8 @@
           "Microsoft.Extensions.Logging.Console": "1.0.0",
           "Microsoft.Extensions.Logging.Debug": "1.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-          "Services": "1.0.0"
+          "Services": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": "1.0.1"
         },
         "runtime": {
           "WebApi.dll": {}
