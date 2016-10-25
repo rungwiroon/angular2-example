@@ -19,7 +19,6 @@ export class CustomerListComponent implements OnInit {
   getCustomers(): void {
     this.customerService.getCustomers()
       .then(customers => {
-        console.log('customer component data : ' + customers);
         this.customerList = customers;
       });
   }

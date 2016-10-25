@@ -31,7 +31,7 @@ export class CustomerCreateComponent implements OnInit {
   }
 
   public onSubmit(){
-    this.customerModel.id = this.mockedCustomerModel.length + 1;
+    this.customerModel.Id = this.mockedCustomerModel.length + 1;
     this.mockedCustomerModel.push(this.customerModel);
   }
 

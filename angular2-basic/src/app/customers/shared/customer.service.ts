@@ -15,10 +15,7 @@ export class CustomerService {
   getCustomers(): Promise<CustomerModel[]> {
     let customer = this.http.get(this.webApiUrl)
                .toPromise()
-               .then(response => {
-                 console.log('customer service json : ' + (response.json() as CustomerModel[])[0].name);
-                 return response.json() as CustomerModel[];
-                })
+               .then(response => response.json() as CustomerModel[])
                .catch(this.handleError);
 
     return customer;
