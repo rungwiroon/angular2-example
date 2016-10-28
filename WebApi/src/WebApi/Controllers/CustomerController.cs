@@ -29,7 +29,7 @@ namespace WebApi.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post(CustomerModel model)
+        public void Post([FromBody] CustomerModel model)
         {
             _service.Create(model);
         }

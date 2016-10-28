@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { CustomerModel, CustomerService } from '../shared';
 
@@ -10,17 +11,21 @@ import { CustomerModel, CustomerService } from '../shared';
 export class CustomerListComponent implements OnInit {
 
   public customerList: CustomerModel[];
-  constructor(private customerService: CustomerService) { }
+  constructor(private customerService: CustomerService, private router: Router) { }
 
   ngOnInit() {
     this.getCustomers();
   }
 
-  private getCustomers(): void{
+  private getCustomers(): void {
     this.customerService.get()
       .then(customers => {
         this.customerList = customers;
     });
+  }
+
+  public onUpdate(id: number): void {
+    this.router.navigate(['customer/update', id]);
   }
 
 }

@@ -51,7 +51,8 @@ namespace WebApi
             {
                 options.AddPolicy("AllowSpecificOrigin",
                 builder => builder.WithOrigins("http://localhost:4200")
-                .AllowAnyHeader());
+                .AllowAnyHeader()
+                .AllowAnyMethod());
             });
 
             services.Configure<MvcOptions>(options => 
