@@ -10,6 +10,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { CustomerListComponent, CustomerCreateComponent, CustomerService } from './customers';
+import { CustomerUpdateComponent } from './customers/customer-update/customer-update.component';
+import { AgmCoreModule } from 'angular2-google-maps/core';
+import { MapPageComponent } from './maps/map-page/map-page.component';
 
 /*import {
   AppComponent,
@@ -23,14 +26,19 @@ import { CustomerListComponent, CustomerCreateComponent, CustomerService } from 
     HomeComponent,
     HeaderComponent,
     CustomerListComponent,
-    CustomerCreateComponent
+    CustomerCreateComponent,
+    CustomerUpdateComponent,
+    MapPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     Routing,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+     AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBpmpEN20yatLL8QnTd4PEhqPikaXPi4_U'
+    })
   ],
   providers: [CustomerService],
   bootstrap: [AppComponent]
