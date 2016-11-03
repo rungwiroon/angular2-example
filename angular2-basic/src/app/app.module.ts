@@ -5,13 +5,15 @@ import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
-import { Routing } from './app.routing';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard, AuthService } from './auth';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
-import { CustomerListComponent, CustomerCreateComponent, CustomerUpdateComponent, CustomerService } from './customers';
+import { CustomerListComponent, CustomerCreateComponent, CustomerUpdateComponent } from './customers';
 import { MapPageComponent } from './maps/map-page/map-page.component';
+import { LoginComponent } from './login/login.component';
 
 /*import {
   AppComponent,
@@ -27,19 +29,21 @@ import { MapPageComponent } from './maps/map-page/map-page.component';
     CustomerListComponent,
     CustomerCreateComponent,
     CustomerUpdateComponent,
-    MapPageComponent
+    MapPageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    Routing,
+    AppRoutingModule,
     NgbModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCL4pxp4YCyVhThEWIQl2HVZOvOpOGnd6k'
     })
   ],
-  providers: [CustomerService],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -6,7 +6,8 @@ import { CustomerService, CustomerModel } from '../shared';
 @Component({
   selector: 'app-customer-update',
   templateUrl: './customer-update.component.html',
-  styleUrls: ['./customer-update.component.scss']
+  styleUrls: ['./customer-update.component.scss'],
+  providers: [CustomerService]
 })
 export class CustomerUpdateComponent implements OnInit {
 
