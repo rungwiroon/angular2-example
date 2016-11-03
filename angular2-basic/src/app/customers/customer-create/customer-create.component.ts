@@ -5,7 +5,8 @@ import { CustomerModel, MockedCustomerModel, CustomerService } from '../shared';
 @Component({
   selector: 'app-customer-create',
   templateUrl: './customer-create.component.html',
-  styleUrls: ['./customer-create.component.scss']
+  styleUrls: ['./customer-create.component.scss'],
+  providers: [CustomerService]
 })
 export class CustomerCreateComponent implements OnInit {
   public clickMe: string;

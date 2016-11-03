@@ -5,7 +5,8 @@ import { MapModel, MockedMapModel, RealtimeService } from '../shared'
 @Component({
   selector: 'app-map-page',
   templateUrl: './map-page.component.html',
-  styleUrls: ['./map-page.component.scss']
+  styleUrls: ['./map-page.component.scss'],
+  providers: [RealtimeService]
 })
 
 
