@@ -1,28 +1,24 @@
 <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-  <sebm-google-map-marker 
+  <sebm-google-map-marker
   *ngFor="let marker of markers"
-  [latitude]="marker.Lat" 
+  [latitude]="marker.Lat"
   [longitude]="marker.Lng"
   [label]="marker.Info"
-  [iconUrl]="marker.IconPath"
-  [zIndex]= "2">
+  [iconUrl]="marker.IconPath">
 
   <sebm-google-map-info-window>
-    <b>License: {{marker.Info}}</b>
+    <strong>License: {{marker.Info}}</strong>
   </sebm-google-map-info-window>
   </sebm-google-map-marker>
 
   <sebm-google-map-circle
-  [latitude]="lat + 1" 
+  [latitude]="lat + 0 + 3"
   [longitude]="lng"
-  [radius] = "5000"
-  [editable] = "true"
-  >
-  <sebm-google-map-info-window>
-    <b>latitude: {{lat+1}}</b>
-    <b>longitude: {{lng}}</b>
-    <b>radius: 5000</b>
-  </sebm-google-map-info-window>
-  
+  [radius]="4000"
+  [fillColor]="'Black'"
+  [circleDraggable]="true"
+  [editable]="true"
+  (dragEnd)="circleDragEnd($event)">
+
   </sebm-google-map-circle>
 </sebm-google-map>

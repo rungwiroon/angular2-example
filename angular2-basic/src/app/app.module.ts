@@ -12,7 +12,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { CustomerListComponent, CustomerCreateComponent, CustomerService } from './customers';
 import { CustomerUpdateComponent } from './customers/customer-update/customer-update.component';
 import { AgmCoreModule } from 'angular2-google-maps/core';
-import { MapPageComponent } from './maps/map-page/map-page.component';
+import { MapPageComponent, RealtimeService } from './maps';
 
 /*import {
   AppComponent,
@@ -40,7 +40,7 @@ import { MapPageComponent } from './maps/map-page/map-page.component';
       apiKey: 'AIzaSyBpmpEN20yatLL8QnTd4PEhqPikaXPi4_U'
     })
   ],
-  providers: [CustomerService],
+  providers: [CustomerService,RealtimeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
