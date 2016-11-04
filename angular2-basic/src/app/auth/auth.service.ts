@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 export class AuthService {
     public token: string;
     private webApiUrl = 'http://192.168.10.3:7777/api/gettoken';
-    private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+    private headers = new Headers({'Content-Type': 'application/json'});
     constructor(private http: Http) {
         let currentUser = JSON.parse(localStorage.getItem('currentUser'))
         this.token = currentUser && currentUser.token;
@@ -16,7 +16,7 @@ export class AuthService {
 
     login(username: string, password: string): Observable<boolean> {
         let body = `username=${username}&password=${password}`;
-        return this.http.post(this.webApiUrl, body /*JSON.stringify({ username: username, password: password })*/, { headers: this.headers })
+        return this.http.post(this.webApiUrl,/* body */JSON.stringify({ username: username, password: password }), { headers: this.headers })
             .map((response: Response) => {
                 let token = response.json() && response.json().access_token;
                 if (token) {
