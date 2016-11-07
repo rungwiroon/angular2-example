@@ -23,7 +23,7 @@
 	</table>
 </div>
 <div class="col-md-8">
-
+   
 	<sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
 
 		<sebm-google-map-marker *ngFor="let marker of markers" [latitude]="marker.Lat" [longitude]="marker.Lng" [iconUrl]="marker.IconPath">
