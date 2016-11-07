@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MapModel, MockedMapModel, RealtimeService } from '../shared'
+import { MarkerModel, MockedMapModel, RealtimeService, Marker } from '../shared'
 
 @Component({
   selector: 'app-map-page',
@@ -16,7 +16,7 @@ export class MapPageComponent implements OnInit {
   public lat: number = 13.7815198;
   public lng: number = 100.6265484;
   public zoom: number = 10;
-  public markers: any;//เพื่อมี error
+  public markers: Marker[];//เพื่อมี error
   constructor(private realtimeService: RealtimeService) {
 
   }
@@ -26,13 +26,28 @@ export class MapPageComponent implements OnInit {
   }
 
   public getPoint(): void {
-    console.log(">>getPoint");
-    //this.markers = MockedMapModel;
+
     this.realtimeService.get()
-      .then(models => {
-        console.log(models)
-        this.markers = models;
+      .subscribe(models => {
+        if (models) {
+          // successful
+          this.markers = [];
+          console.log(models);
+          models.forEach(model => {
+            let marker = new MarkerModel();
+            marker.Lat = model.Paths[0] && model.Paths[0].lat;
+            marker.Lng = model.Paths[0] && model.Paths[0].lng;
+            marker.Info = model;
+
+            this.markers.push(marker);
+          });
+          console.log(this.markers);
+        } else {
+          // failed
+
+        }
       });
+
   }
 
 }
