@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService, Login } from '../auth';
+import { HeaderEventManager } from '../shared/headerEventManager';
 
 @Component({
   selector: 'app-login',
@@ -16,11 +17,13 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router) {
+    private router: Router,
+    private headerEventManager: HeaderEventManager) {
 
     }
 
   ngOnInit() {
+    this.headerEventManager.showNavBar.emit(false);
     this.authService.logout();
   }
 
@@ -30,6 +33,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.model.Username, this.model.Password)
     .subscribe(result => {
         if (result === true) {
+          this.headerEventManager.showNavBar.emit(true);
           this.router.navigate(['/']);
         } else {
           this.error = 'Username or password is incorrect';

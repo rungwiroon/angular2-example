@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { HeaderEventManager } from '../headerEventManager';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public showNavBar: boolean = true;
+
+  constructor(private headerEventManager: HeaderEventManager) { }
 
   ngOnInit() {
+    this.headerEventManager.showNavBar.subscribe((model) => {
+      this.showNavBar = model;
+    });
   }
 
 }
