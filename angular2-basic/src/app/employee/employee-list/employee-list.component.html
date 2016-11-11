@@ -3,7 +3,14 @@
         headerTitle="Employees"
         [items]="employeeList"
         [itemCount]="employeeCount"
-        (reload)="reloadEmployee($event)">
+        [multiSelect]="true"
+        [selectColumn]="true"
+        [rowTooltip]="rowTooltip"
+        [selectOnRowClick]="true"
+        (reload)="reloadEmployee($event)"
+        (rowClick)="rowClick($event)"
+        (rowDoubleClick)="rowDoubleClick($event)"
+        >
 
         <data-table-column
           [property]="'name'"
@@ -43,5 +50,25 @@
           </template>
         </data-table-column>
 
+        <data-table-column 
+            header="Actions">
+            <template #dataTableHeader let-item="item">
+                <i>Actions</i>
+            </template>
+            <template #dataTableCell let-item="item">
+                <button (click)="actionClicked(item)" class="btn btn-sm btn-default">Buy</button>
+            </template>
+</data-table-column>
+
       </data-table>
+</div>
+
+<div>
+  <div>
+    <b>Selected</b>
+    <span [textContent]="employeeTable.selectedRows.length"> </span>
+  </div>
+  <div *ngFor="let selected of employeeTable.selectedRows">
+    <span [textContent]="selected.item.name"> </span>
+  </div>
 </div>

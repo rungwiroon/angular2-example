@@ -9,6 +9,7 @@ import { DataTableModule } from 'angular-2-data-table';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard, AuthService } from './auth';
 import { HeaderEventManager } from './shared/headerEventManager';
+import { HttpClient } from './http-client';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -47,7 +48,7 @@ import { EmployeeListComponent } from './employee';
       apiKey: 'AIzaSyCL4pxp4YCyVhThEWIQl2HVZOvOpOGnd6k'
     })
   ],
-  providers: [AuthGuard, AuthService, HeaderEventManager],
+  providers: [AuthGuard, AuthService, HttpClient, HeaderEventManager],
   bootstrap: [AppComponent]
 })
 
