@@ -11,6 +11,8 @@ import { CustomerModel, MockedCustomerModel, CustomerService } from '../shared';
 export class CustomerCreateComponent implements OnInit {
   public clickMe: string;
   public values: string;
+  
+  public title: string = 'Customer create';
 
   public provinces: string[] = ["", "1", "2", "3"];
   public customerModel: CustomerModel = new CustomerModel();

@@ -12,17 +12,19 @@ import { CustomerModel, CustomerService } from '../shared';
 export class CustomerListComponent implements OnInit {
 
   public customerList: CustomerModel[];
-  constructor(private customerService: CustomerService, private router: Router) { }
+  public title: string = 'Customer list';
+
+  constructor(private customerService: CustomerService, private router: Router) {}
 
   ngOnInit() {
     this.getCustomers();
   }
 
-  private getCustomers(): void{
+  private getCustomers(): void {
     this.customerService.get()
       .then(customers => {
         this.customerList = customers;
-    });
+      });
   }
 
   public onUpdate(id: number): void {

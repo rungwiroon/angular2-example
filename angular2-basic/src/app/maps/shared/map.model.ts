@@ -5,7 +5,7 @@ export class MarkerModel implements Marker {
     public IconPath?: string;
 }
 
-export class Marker {
+export interface Marker {
     Lat?: number;
     Lng?: number;
     IconPath?: string;

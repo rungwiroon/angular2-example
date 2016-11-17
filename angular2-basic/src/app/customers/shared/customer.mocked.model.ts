@@ -1,6 +1,6 @@
 import { CustomerModel } from '.';
 
-export const MockedCustomerModel: CustomerModel[] = [
+export var MockedCustomerModel: CustomerModel[] = [
   {
     Id: 1,
     Name: "test page#1",
