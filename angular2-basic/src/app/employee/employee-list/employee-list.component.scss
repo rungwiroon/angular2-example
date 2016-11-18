@@ -1,0 +1,12 @@
+
+:host /deep/ .data-table-row {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+:host /deep/ .data-table .data-table-row.selected {
+    background-color: #E4EDF9;
+}
