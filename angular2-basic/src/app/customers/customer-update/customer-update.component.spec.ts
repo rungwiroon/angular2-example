@@ -2,7 +2,7 @@
 
 import { TestBed, inject } from '@angular/core/testing';
 import { CustomerUpdateComponent } from './customer-update.component';
-import { CustomerService, FakeCustomerService } from '..';
+import { CustomerService, CustomerServiceStub } from '..';
 import { ActivatedRoute } from '@angular/router';
 
 describe('Component: CustomerUpdate', () => {
@@ -14,8 +14,8 @@ describe('Component: CustomerUpdate', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        { provide: CustomerService, useClass: FakeCustomerService },
-        { provide: ActivatedRoute, useClass: RouterStub }
+        { provide: CustomerService, useValue: CustomerServiceStub },
+        { provide: ActivatedRoute, useValue: RouterStub }
       ]
     });
   });

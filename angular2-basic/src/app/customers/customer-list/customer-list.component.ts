@@ -7,7 +7,7 @@ import { CustomerModel, CustomerService } from '../shared';
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
   styleUrls: ['./customer-list.component.scss'],
-  providers: [CustomerService]
+  //providers: [CustomerService]
 })
 export class CustomerListComponent implements OnInit {
 
