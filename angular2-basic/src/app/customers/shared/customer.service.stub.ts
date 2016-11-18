@@ -7,7 +7,6 @@ import 'rxjs/add/operator/toPromise';
 import { CustomerModel, MockedCustomerModel } from '.';
 import { asEnumerable } from 'linq-es2015';
 
-@Injectable()
 export let CustomerServiceStub = {
 
     //constructor() { }
