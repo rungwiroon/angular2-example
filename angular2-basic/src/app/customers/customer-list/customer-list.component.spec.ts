@@ -11,7 +11,6 @@ import { Http } from '@angular/http';
 import { CustomerListComponent } from './customer-list.component';
 import { CustomerService, CustomerServiceStub, CustomerModel } from '..';
 
-console.log('startttttt');
 let el: HTMLElement;
 let fixture: ComponentFixture<CustomerListComponent>;
 let comp: CustomerListComponent;
@@ -21,7 +20,6 @@ let customers: CustomerModel[] = [
 ];
 let spy: any;
 
- 
 describe('Component: CustomerList', () => {
 
   let routerStub = {
@@ -38,10 +36,19 @@ describe('Component: CustomerList', () => {
     TestBed.configureTestingModule({
       declarations: [CustomerListComponent],
       providers: [
-        { provide: CustomerService, useValue: CustomerServiceStub },
-        { provide: Router, useValue: routerStub } 
+        { provide: CustomerService, useValue: customerServiceStub },
+        { provide: Router, useValue: routerStub }
       ]
-    });
+    })
+    // Override component's own provider
+    .overrideComponent(CustomerListComponent, {
+      set: {
+        providers: [
+          { provide: CustomerService, useValue: customerServiceStub }
+        ]
+      }
+    })
+    ;
 
     fixture = TestBed.createComponent(CustomerListComponent);
 
@@ -60,7 +67,7 @@ describe('Component: CustomerList', () => {
   }));
 
   it('should not show cutomer list before OnInit', () => {
-    expect(comp.customerList).toBeFalsy("kuy kuy kuy");
+    expect(comp.customerList).toBeFalsy('kuy kuy kuy');
 
     let elem = fixture.debugElement.query(By.css('.row'));
     expect(elem).toBeFalsy('nothing displayed');
@@ -79,7 +86,7 @@ describe('Component: CustomerList', () => {
     fixture.detectChanges();
     fixture.whenStable().then(() => { // wait for async get cutomers
       fixture.detectChanges();        // update view with quote
-      expect(comp.customerList.length).toBe(1, "kuy kuy kuy");
+      expect(comp.customerList.length).toBe(1, 'kuy kuy kuy');
       let elem = fixture.debugElement.query(By.css('.row'));
       expect(elem).toBeTruthy('It displayed');
       
@@ -90,8 +97,8 @@ describe('Component: CustomerList', () => {
     fixture.detectChanges();
     tick();                  // wait for async getQuote
     fixture.detectChanges(); // update view with quote
-    expect(comp.customerList.length).toBe(1, "kuy kuy kuy");
+    expect(comp.customerList.length).toBe(1, 'kuy kuy kuy');
     let elem = fixture.debugElement.query(By.css('.row'));
       expect(elem).toBeTruthy('It displayed');
   }));
-})
+});
