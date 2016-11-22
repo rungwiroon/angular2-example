@@ -11,9 +11,8 @@ import { CustomerService, CustomerModel } from '../shared';
 })
 export class CustomerUpdateComponent implements OnInit {
 
-  public provinces: string[] = ['', '1', '2', '3'];
+  public provinces: string[] = ['', '1', '2', '3']
   public customerModel: CustomerModel = new CustomerModel();
-
   constructor(private service: CustomerService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -25,7 +24,6 @@ export class CustomerUpdateComponent implements OnInit {
     this.service.getById(id)
       .then(customer => {
         this.customerModel = customer;
-      });
+    });
   }
-
 }

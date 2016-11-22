@@ -1,4 +1,4 @@
-<header class='header' *ngIf="showNavBar">
+<header class='header'>
   <nav>
     <a href='javascript:void(0)' class='brand'>Tracking</a>
     <ul class='menu'>
@@ -14,20 +14,15 @@
         <a 
           routerLink='/map'
           routerLinkActive='active'
-          class='menu__link'>
+          class='menu_link'>
           Map
         </a>
       </li>
-       <li class='menu__item'>
-        <a 
-          routerLink='/employee'
-          routerLinkActive='active'
-          class='menu__link'>
-          Employee
+      <li class='menu__item'>
+        <a [routerLink] ="['/login']" class="menu__link">
+          Logout
         </a>
-      </li>
-      <li class="menu__item">
-        <a [routerLink]="['/login']" class="menu__link">Logout</a>
+        </li>
     </ul>
   </nav>
 </header>

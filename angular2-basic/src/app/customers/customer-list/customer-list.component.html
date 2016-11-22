@@ -1,3 +1,4 @@
+<h2 class="title">{{title}}</h2>
 <div>
   <a routerLink='/customer/create'>Create New</a>
 </div>
@@ -12,12 +13,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let customer of customerList">
+    <tr *ngFor="let customer of customerList" class="row">
       <td>{{customer.Id}}</td>
       <td>{{customer.Name}}</td>
       <td>{{customer.Address}}</td>
       <td>{{customer.Province}}</td>
-      <td><a href="javascript:void(0)" (click)="onUpdate(customer.Id)">Edit</a></td>
+      <td><a href="javascript:void()" (click) = "onUpdate(customer.Id)">Edit</a>
     </tr>
   </tbody>
 </table>

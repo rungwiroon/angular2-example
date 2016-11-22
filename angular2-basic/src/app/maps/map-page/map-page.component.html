@@ -1,25 +1,41 @@
-<sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [zoomControl]="true">
-  <sebm-google-map-marker
-    *ngFor="let marker of markers"
-    [latitude]="marker.Lat" 
-    [longitude]="marker.Lng"
-    [label]="marker.Info"
-    [iconUrl]="marker.IconPath">
+<div class="col-md-4">
+	<table class='table'>
+		<thead>
+			<tr>
+				<th>License</th>
+				<th>StatusDate</th>
+				<th>Status</th>
+				<th>Head</th>
+				<th>Speed</th>
+				<th>Address</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let marker of markers">
+				<td>{{marker.Info.License}}</td>
+				<td>{{marker.Info.StatusDate}}</td>
+				<td>{{marker.Info.Status}}</td>
+				<td>{{marker.Info.Head}}</td>
+				<td>{{marker.Info.Speed}}</td>
+				<td>{{marker.Info.Address}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="col-md-8">
+   
+	<sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
 
-    <sebm-google-map-info-window>
-      <strong>License: {{marker.Info}}</strong>
-    </sebm-google-map-info-window>
+		<sebm-google-map-marker *ngFor="let marker of markers" [latitude]="marker.Lat" [longitude]="marker.Lng" [iconUrl]="marker.IconPath">
 
-   </sebm-google-map-marker>
+			<sebm-google-map-info-window>
+				<strong>License: {{marker.Info.License}}</strong><br>
+				<strong>StatusDate: {{marker.Info.StatusDate}}</strong><br>
+				<strong>Status: {{marker.Info.Status}}</strong><br>
+				<strong>Speed: {{marker.Info.Speed}}</strong><br>
+				<strong>Address: {{marker.Info.Address}}</strong><br>
+			</sebm-google-map-info-window>
 
-   <sebm-google-map-circle 
-   [latitude]="lat + 0.3" 
-   [longitude]="lng" 
-   [radius]="4000"
-   [fillColor]="'red'"
-   [circleDraggable]="true"
-   [editable]="true"
-   (dragEnd)="circleDragEnd($event)">
-     
-   </sebm-google-map-circle>
-</sebm-google-map>
+		</sebm-google-map-marker>
+	</sebm-google-map>
+</div>

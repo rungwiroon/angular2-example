@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { AuthService, Login } from '../auth';
-import { HeaderEventManager } from '../shared/headerEventManager';
+import { AuthService, LoginModel, Login } from '../auth'
 
 @Component({
   selector: 'app-login',
@@ -11,35 +9,31 @@ import { HeaderEventManager } from '../shared/headerEventManager';
 })
 export class LoginComponent implements OnInit {
 
-  public model: Login = { Username: '', Password: '' };
-  public loading: boolean = false;
+  public model: Login = new LoginModel() ;
+  public loading: boolean;
   public error: string = '';
 
   constructor(
     private authService: AuthService,
-    private router: Router,
-    private headerEventManager: HeaderEventManager) {
-
-    }
+    private router: Router
+  ) { }
 
   ngOnInit() {
-    this.headerEventManager.showNavBar.emit(false);
     this.authService.logout();
   }
 
   login(): void {
     this.loading = true;
-
     this.authService.login(this.model.Username, this.model.Password)
-    .subscribe(result => {
+      .subscribe(result => {
         if (result === true) {
-          this.headerEventManager.showNavBar.emit(true);
+          // login successful
           this.router.navigate(['/']);
         } else {
+          // login failed
           this.error = 'Username or password is incorrect';
           this.loading = false;
         }
-    });
+      });
   }
-
 }

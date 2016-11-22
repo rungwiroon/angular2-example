@@ -1,12 +1,14 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
-import { CustomerService } from './customer.service';
+import { TestBed, inject } from '@angular/core/testing';
+import { CustomerService, CustomerServiceStub } from '.';
 
 describe('Service: Customer', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CustomerService]
+      providers: [
+        { provide: CustomerService, useValue: CustomerServiceStub }
+      ]
     });
   });
 

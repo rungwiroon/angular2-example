@@ -7,12 +7,14 @@ import { CustomerModel, CustomerService } from '../shared';
   selector: 'app-customer-list',
   templateUrl: './customer-list.component.html',
   styleUrls: ['./customer-list.component.scss'],
-  providers: [CustomerService]
+  //providers: [CustomerService]
 })
 export class CustomerListComponent implements OnInit {
 
   public customerList: CustomerModel[];
-  constructor(private customerService: CustomerService, private router: Router) { }
+  public title: string = 'Customer list';
+
+  constructor(private customerService: CustomerService, private router: Router) {}
 
   ngOnInit() {
     this.getCustomers();
@@ -22,7 +24,7 @@ export class CustomerListComponent implements OnInit {
     this.customerService.get()
       .then(customers => {
         this.customerList = customers;
-    });
+      });
   }
 
   public onUpdate(id: number): void {
